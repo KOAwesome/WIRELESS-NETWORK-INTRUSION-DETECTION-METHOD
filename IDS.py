@@ -124,8 +124,6 @@ def runSVM():
     global classifier
     global X, Y, X_train, X_test, y_train, y_test
     total = X_train.shape[1];
-    #X_train1 = SelectKBest(chi2,15).fit_transform(X_train, y_train)
-    #X_test1 = SelectKBest(chi2,15).fit_transform(X_test,y_test)
     text.insert(END,"Total Features : "+str(total)+"\n")
     text.insert(END,"Features set reduce after applying features selection concept : "+str((total - X_train.shape[1]))+"\n\n")
     cls = svm.SVC(kernel='rbf', class_weight='balanced', probability=True)
@@ -137,25 +135,29 @@ def runSVM():
 
 
 
+
 def runANN():
     text.delete('1.0', END)
     global ann_acc
     global X, Y, X_train, X_test, y_train, y_test
     total = X_train.shape[1];
-    X_train = SelectKBest(chi2,25).fit_transform(X_train, y_train)
-    X_test = SelectKBest(chi2,25).fit_transform(X_test,y_test)
+
+    # Import and use SelectKBest here
+    select_k_best = SelectKBest(chi2, k=25)
+    X_train = select_k_best.fit_transform(X_train, y_train)
+    X_test = select_k_best.transform(X_test)
+
     text.insert(END,"Total Features : "+str(total)+"\n")
     text.insert(END,"Features set reduce after applying features selection concept : "+str((total - X_train.shape[1]))+"\n\n")
     model = Sequential()
-    model.add(Dense(30, input_dim=25, activation='relu'))
+    model.add(Dense(30, input_dim=X_train.shape[1], activation='relu'))
     model.add(Dense(25, activation='relu'))
     model.add(Dense(1, activation='sigmoid'))
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
     model.fit(X_train, y_train, epochs=100, batch_size=32)
     _, ann_acc = model.evaluate(X_train, y_train)
     ann_acc = ann_acc*100
-    text.insert(END,"ANN Accuracy : "+str(ann_acc)+"\n\n")
-    
+    text.insert(END,"ANN Accuracy : "+str(ann_acc)+"\n\n")    
 
 
 def detectAttack():
