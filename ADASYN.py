@@ -6,7 +6,7 @@ from tkinter import filedialog
 import matplotlib.pyplot as plt
 from tkinter.filedialog import askopenfilename
 import numpy as np
-# from keras.utils.np_utils import to_categorical # For older versions of Keras use this.
+# from keras.utils.np_utils import to_categorical # For older versions of Keras {keras<=2.3.1 tensorflow<=1.14.0}
 from tensorflow.keras.utils import to_categorical
 from keras.layers import  MaxPooling2D
 from keras.layers import Dense, Dropout, Activation, Flatten
