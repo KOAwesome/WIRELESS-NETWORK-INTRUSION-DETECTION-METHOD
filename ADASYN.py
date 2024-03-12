@@ -6,7 +6,7 @@ from tkinter import filedialog
 import matplotlib.pyplot as plt
 from tkinter.filedialog import askopenfilename
 import numpy as np
-# from keras.utils.np_utils import to_categorical
+# from keras.utils.np_utils import to_categorical # For older versions of Keras use this.
 from tensorflow.keras.utils import to_categorical
 from keras.layers import  MaxPooling2D
 from keras.layers import Dense, Dropout, Activation, Flatten
@@ -33,7 +33,7 @@ from sklearn.preprocessing import LabelEncoder
 
 
 main = tkinter.Tk()
-main.title("ADASYN") 
+main.title("Adaptive Synthetic Sampling") 
 main.geometry("1300x1200")
 
 global filename, spc_cnn, X, Y, dataset
@@ -238,8 +238,8 @@ def predict():
 
 
 font = ('times', 15, 'bold')
-title = Label(main, text='A Novel Wireless Network Intrusion Detection Method Based on Adaptive Synthetic Sampling and an Improved Convolutional Neural Network')
-title.config(bg='firebrick4', fg='dodger blue')  
+title = Label(main, text='Wireless Network Intrusion Detection Method Based on Adaptive Synthetic Sampling and an Improved Convolutional Neural Network')
+title.config(bg='PaleGreen2', fg='Khaki4')
 title.config(font=font)           
 title.config(height=3, width=120)       
 title.place(x=0,y=5)
@@ -287,5 +287,5 @@ predictButton = Button(main, text="Predict Attack from Test Data", command=predi
 predictButton.place(x=50,y=650)
 predictButton.config(font=font1)
 
-main.config(bg='LightSalmon3')
+main.config(bg='PeachPuff2')
 main.mainloop()
