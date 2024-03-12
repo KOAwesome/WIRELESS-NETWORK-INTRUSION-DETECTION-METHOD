@@ -1,1 +1,1 @@
-python3 IDS.py
+python3 ASASYN.py
