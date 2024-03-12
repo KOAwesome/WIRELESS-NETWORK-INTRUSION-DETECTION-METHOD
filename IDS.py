@@ -23,7 +23,7 @@ from keras.layers import Dense
 
 
 main = tkinter.Tk()
-main.title("A NOVEL WIRELESS NETWORK INTRUSION DETECTION METHOD BASED ON ADAPTIVE SYNTHETIC SAMPLING AND AN IMPROVED CONVOLUTIONAL NEURAL NETWORK")
+main.title("WIDS accuracy determination by SVM && ANN")
 main.geometry("1300x1200")
 
 global filename
@@ -186,7 +186,7 @@ def graph():
   
 
 font = ('times', 16, 'bold')
-title = Label(main, text='A NOVEL WIRELESS NETWORK INTRUSION DETECTION METHOD BASED ON ADAPTIVE SYNTHETIC SAMPLING AND AN IMPROVED CONVOLUTIONAL NEURAL NETWORK')
+title = Label(main, text='WIRELESS NETWORK INTRUSION DETECTION USING SVM AND ANN')
 title.config(bg='PaleGreen2', fg='Khaki4')  
 title.config(font=font)           
 title.config(height=3, width=120)       
@@ -194,13 +194,13 @@ title.place(x=0,y=5)
 
 font1 = ('times', 14, 'bold')
 upload = Button(main, text="Upload NSL KDD Dataset", command=upload)
-upload.place(x=700,y=100)
+upload.place(x=700,y=150)
 upload.config(font=font1)  
-
-pathlabel = Label(main)
-pathlabel.config(bg='DarkOrange1', fg='white')  
-pathlabel.config(font=font1)           
-pathlabel.place(x=700,y=150)
+# Supposed to be something which got deleted by the group
+# pathlabel = Label(main)
+# pathlabel.config(bg='DarkOrange1', fg='white')  
+# pathlabel.config(font=font1)           
+# pathlabel.place(x=700,y=150)
 
 preprocess = Button(main, text="Preprocess Dataset", command=preprocess)
 preprocess.place(x=700,y=200)
