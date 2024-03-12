@@ -1,1 +1,1 @@
-python3 ASASYN.py
+python3 ADASYN.py
